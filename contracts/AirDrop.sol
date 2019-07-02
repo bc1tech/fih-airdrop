@@ -1,6 +1,6 @@
 pragma solidity ^0.5.10;
 
-import "openzeppelin-solidity/contracts/math/Safemath.sol";
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "eth-token-recover/contracts/TokenRecover.sol";
 
 /**
