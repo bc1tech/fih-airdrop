@@ -36,6 +36,10 @@ node commands --input="./commands/sample-data/contributions.json"
 node commands --endpoint=https://mainnet.infura.io --net-id=1 --contract=0xe554EE8f6Fc36F6fDdD40028D061BB8779437620
 ```
 
+```bash
+node commands --endpoint=[geth ip] --net-id=1 --contract=0xdfC3e857c8cCEA7657E0ed98AB92e048e38deE0f --input=./commands/input/contributions.json --block=8077558
+```
+
 ### Options
 
 ```bash
@@ -43,6 +47,7 @@ node commands --endpoint=https://mainnet.infura.io --net-id=1 --contract=0xe554E
 --input, -i         path of json file containing the list of datas      [string]    [default: "./input/contributions.json"]
 --out, -o           directory for json files where to store results     [string]    [default: "./scripts/output"]
 --net-id, -n        network id                                          [number]    [default: 5777]
+--block, -b         block number                                        [string]    [default: "latest"]
 --from, -f          sending address                                     [string]
 --contract, -c      contract address                                    [string]
 --init-wallet       init wallet or not                                  [boolean]   [default: false]

@@ -30,6 +30,12 @@ const argv = require('yargs')
     type: 'number',
     default: 5777, // ganache
   })
+  .option('block', {
+    alias: 'b',
+    describe: 'block number',
+    type: 'string',
+    default: 'latest',
+  })
   .option('from', {
     alias: 'f',
     describe: 'sending address',
@@ -99,6 +105,7 @@ class Dapp {
     this.eth = {
       endpoint: argv.endpoint,
       netId: argv['net-id'],
+      blockNumber: argv.block,
       gasLimit: argv['gas-limit'],
       gasPrice: web3.toWei(argv['gas-price'], 'gwei'),
       contractAddress: argv.contract,
