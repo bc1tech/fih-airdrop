@@ -1,4 +1,4 @@
-# Smart Contract Box
+# FidelityHouse AirDrop
 
 [![Build Status](https://travis-ci.org/bc1tech/fih-airdrop.svg?branch=master)](https://travis-ci.org/bc1tech/fih-airdrop) 
 [![Coverage Status](https://coveralls.io/repos/github/bc1tech/fih-airdrop/badge.svg)](https://coveralls.io/github/bc1tech/fih-airdrop)
