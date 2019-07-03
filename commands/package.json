@@ -1,0 +1,20 @@
+{
+  "name": "commands-src",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "log4js": "^4.4.0",
+    "prompt-sync": "^4.1.7",
+    "truffle-contract": "^3.0.7",
+    "truffle-hdwallet-provider": "^1.0.12",
+    "truffle-wallet-provider": "^0.0.5",
+    "web3": "0.20.6",
+    "yargs": "^13.2.4"
+  }
+}

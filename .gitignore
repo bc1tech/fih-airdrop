@@ -43,3 +43,9 @@ package-lock.json
 
 # IntelliJ IDE
 .idea
+
+# commands
+commands/keystore
+commands/input
+commands/output
+commands/logs
