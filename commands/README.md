@@ -37,7 +37,7 @@ node commands --endpoint=https://mainnet.infura.io --net-id=1 --contract=0xe554E
 ```
 
 ```bash
-node commands --endpoint=[geth ip] --net-id=1 --contract=0xdfC3e857c8cCEA7657E0ed98AB92e048e38deE0f --input=./commands/input/contributions.json --block=8077558
+node commands --endpoint=[geth ip] --net-id=1 --contract=0xdfC3e857c8cCEA7657E0ed98AB92e048e38deE0f --input=./commands/input/contributions.json --block=8077558 --airdrop-percent=1.5
 ```
 
 ### Options
@@ -51,6 +51,7 @@ node commands --endpoint=[geth ip] --net-id=1 --contract=0xdfC3e857c8cCEA7657E0e
 --from, -f          sending address                                     [string]
 --contract, -c      contract address                                    [string]
 --init-wallet       init wallet or not                                  [boolean]   [default: false]
+--airdrop-percent   percent of token to airdrop                         [number]   [default: 1.5]
 --gas-limit         provided gas limit                                  [number]    [default: 6721975]
 --gas-price         provided gas price in gwei                          [number]    [default: 5]
 --nonce             progressive nonce id                                [number]

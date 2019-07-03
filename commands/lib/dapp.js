@@ -51,6 +51,11 @@ const argv = require('yargs')
     type: 'boolean',
     default: false,
   })
+  .option('airdrop-percent', {
+    describe: 'percent of token to airdrop',
+    type: 'number',
+    default: 1.5,
+  })
   .option('gas-limit', {
     describe: 'provided gas limit',
     type: 'number',
@@ -100,6 +105,7 @@ class Dapp {
     this.gasUsed = 0;
     this.bulk = argv.bulk;
     this.limit = argv['pause-every'];
+    this.airdropPercent = argv['airdrop-percent'];
     this.dryrun = argv.dryrun;
     this.timeout = argv.timeout;
     this.eth = {
