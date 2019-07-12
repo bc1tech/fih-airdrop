@@ -7,9 +7,34 @@
 
 Smart Contracts and scripts to manage FIH token AirDrop issued by FidelityHouse International SA.
 
-Code created using [Open Zeppelin (openzeppelin-solidity)](https://github.com/OpenZeppelin/openzeppelin-solidity) and [Truffle Framework](https://github.com/trufflesuite/truffle).
+* Initial token amount: `51350768.626444582572504 FIH`
+* Airdrop
+    * 3 months
+        * Block: `8134844` 
+        * Amount `1.5%` 
+        * Total held tokens: `51168088.812190301623 FIH`
+        * Total airdropped tokens: `767521.332182854524345 FIH`
+        * Transaction hash: [0x07f5750abd2dcea83963579e2061868513d596e178b78c30197fc4617cc01f1d](https://etherscan.io/tx/0x07f5750abd2dcea83963579e2061868513d596e178b78c30197fc4617cc01f1d)
+    * 6 months
+        * Block: `n.d` 
+        * Amount `2.5%` 
+        * Total held tokens: `n.d`
+        * Total airdropped tokens: `n.d`
+        * Transaction hash: `n.d`
+    * 9 months
+        * Block: `n.d`
+        * Amount `6%` 
+        * Total held tokens: `n.d`
+        * Total airdropped tokens: `n.d`
+        * Transaction hash: `n.d`
 
 ## Development
+
+Code created using:
+    
+* [Open Zeppelin (openzeppelin-solidity)](https://github.com/OpenZeppelin/openzeppelin-solidity)
+* [Truffle Framework](https://github.com/trufflesuite/truffle).
+* [Ethereum JavaScript API (web3.js)](https://github.com/ethereum/web3.js/)
 
 ### Install dependencies
 
