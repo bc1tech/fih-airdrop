@@ -123,7 +123,7 @@ class Airdrop {
       // calculate the minimum hold amount
       if (Object.getOwnPropertyNames(trxList).length > 0) {
         for (const block of Object.keys(trxList)) {
-          if (trxList.hasOwnProperty(block)) {
+          if (Object.prototype.hasOwnProperty.call(trxList, block)) {
             const txLog = trxList[block];
 
             if (txLog.type === 'in') {
