@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/AirDrop.dist.sol | e7bb634b32539e8a8133ef066a20624078903977 |
+| dist/AirDrop.dist.sol | 73868ca3782eeb1309a4f1302b62efaa661b885c |
 
 
 ### Contracts Description Table
