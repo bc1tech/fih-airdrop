@@ -16,11 +16,11 @@ Smart Contracts and scripts to manage FIH token AirDrop issued by FidelityHouse 
         * Total airdropped tokens: `767521.332182854524345 FIH`
         * Transaction hash: [0x07f5750abd2dcea83963579e2061868513d596e178b78c30197fc4617cc01f1d](https://etherscan.io/tx/0x07f5750abd2dcea83963579e2061868513d596e178b78c30197fc4617cc01f1d)
     * 6 months
-        * Block: `n.d` 
+        * Block: `8710742` 
         * Amount `2.5%` 
-        * Total held tokens: `n.d`
-        * Total airdropped tokens: `n.d`
-        * Transaction hash: `n.d`
+        * Total held tokens: `51142797.797190301623 FIH`
+        * Total airdropped tokens: `1278569.944929757540575`
+        * Transaction hash: [0xce0afe09506c8c6515fe03423e060458b2cdb7ea32f2c3367c9b484f94f74921](https://etherscan.io/tx/0xce0afe09506c8c6515fe03423e060458b2cdb7ea32f2c3367c9b484f94f74921)
     * 9 months
         * Block: `n.d`
         * Amount `6%` 
