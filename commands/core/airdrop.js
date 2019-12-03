@@ -65,57 +65,73 @@ class Airdrop {
 
       const trxList = {};
 
-      // get outcoming transactions
-      await new Promise((resolve) => {
-        const filterFrom = this.instance.Transfer({
-          from: address,
-        }, {
-          to: this.instance.address,
-          fromBlock: icoLatestBlock,
-          toBlock: toBlock,
+      const blockSize = 100000;
+
+      let startBlock = icoLatestBlock;
+
+      while (startBlock < toBlock) {
+        const endBlock = Math.min(startBlock + blockSize, toBlock);
+
+        global.logger.debug(`Analyzing block: ${startBlock} - ${endBlock}`);
+
+        // get outcoming transactions
+        await new Promise((resolve) => {
+          const filterFrom = this.instance.Transfer({
+            from: address,
+          }, {
+            to: this.instance.address,
+            fromBlock: startBlock,
+            toBlock: endBlock,
+          });
+
+          filterFrom.get((error, result) => {
+            if (!error) {
+              result.forEach((txLog) => {
+                trxList[txLog.blockNumber] = {
+                  type: 'out',
+                  value: web3.fromWei(txLog.args.value.valueOf()),
+                  trx: txLog,
+                };
+              });
+              resolve();
+            } else {
+              global.logger.error(error);
+            }
+          });
         });
 
-        filterFrom.get((error, result) => {
-          if (!error) {
-            result.forEach((txLog) => {
-              trxList[txLog.blockNumber] = {
-                type: 'out',
-                value: web3.fromWei(txLog.args.value.valueOf()),
-                trx: txLog,
-              };
-            });
-            resolve();
-          } else {
-            global.logger.error(error);
-          }
-        });
-      });
+        // get incoming transactions
+        await new Promise((resolve) => {
+          const filterFrom = this.instance.Transfer({
+            to: address,
+          }, {
+            to: this.instance.address,
+            fromBlock: startBlock,
+            toBlock: endBlock,
+          });
 
-      // get incoming transactions
-      await new Promise((resolve) => {
-        const filterFrom = this.instance.Transfer({
-          to: address,
-        }, {
-          to: this.instance.address,
-          fromBlock: icoLatestBlock,
-          toBlock: toBlock,
+          filterFrom.get((error, result) => {
+            if (!error) {
+              result.forEach((txLog) => {
+                trxList[txLog.blockNumber] = {
+                  type: 'in',
+                  value: web3.fromWei(txLog.args.value.valueOf()),
+                  trx: txLog,
+                };
+              });
+              resolve();
+            } else {
+              global.logger.error(error);
+            }
+          });
         });
 
-        filterFrom.get((error, result) => {
-          if (!error) {
-            result.forEach((txLog) => {
-              trxList[txLog.blockNumber] = {
-                type: 'in',
-                value: web3.fromWei(txLog.args.value.valueOf()),
-                trx: txLog,
-              };
-            });
-            resolve();
-          } else {
-            global.logger.error(error);
-          }
-        });
-      });
+        startBlock = Math.min(startBlock + blockSize, toBlock);
+
+        if (endBlock === toBlock) {
+          break;
+        }
+      }
 
       let minValue = amount;
       let result = minValue;
