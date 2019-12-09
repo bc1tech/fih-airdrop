@@ -1,4 +1,4 @@
-const { BN, constants, expectRevert } = require('openzeppelin-test-helpers');
+const { BN, constants, expectRevert } = require('@openzeppelin/test-helpers');
 const { ZERO_ADDRESS } = constants;
 
 const { shouldBehaveLikeAirDrop } = require('./AirDrop.behaviour');
@@ -24,7 +24,7 @@ contract('AirDrop', function (accounts) {
     describe('if token address is the zero address', function () {
       it('reverts', async function () {
         await expectRevert.unspecified(
-          AirDrop.new(ZERO_ADDRESS, cap, tokenOwner, { from: airdropOwner })
+          AirDrop.new(ZERO_ADDRESS, cap, tokenOwner, { from: airdropOwner }),
         );
       });
     });
@@ -32,7 +32,7 @@ contract('AirDrop', function (accounts) {
     describe('if cap is zero', function () {
       it('reverts', async function () {
         await expectRevert.unspecified(
-          AirDrop.new(this.token.address, 0, tokenOwner, { from: airdropOwner })
+          AirDrop.new(this.token.address, 0, tokenOwner, { from: airdropOwner }),
         );
       });
     });
@@ -40,7 +40,7 @@ contract('AirDrop', function (accounts) {
     describe('if wallet address is the zero address', function () {
       it('reverts', async function () {
         await expectRevert.unspecified(
-          AirDrop.new(this.token.address, cap, ZERO_ADDRESS, { from: airdropOwner })
+          AirDrop.new(this.token.address, cap, ZERO_ADDRESS, { from: airdropOwner }),
         );
       });
     });
@@ -51,7 +51,7 @@ contract('AirDrop', function (accounts) {
           this.token.address,
           cap,
           tokenOwner,
-          { from: airdropOwner }
+          { from: airdropOwner },
         );
       });
 

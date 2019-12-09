@@ -1,4 +1,4 @@
-const { BN, expectRevert } = require('openzeppelin-test-helpers');
+const { BN, expectRevert } = require('@openzeppelin/test-helpers');
 
 const { shouldBehaveLikeTokenRecover } = require('eth-token-recover/test/TokenRecover.behaviour');
 
@@ -35,7 +35,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
     describe('if spender has not allowance', function () {
       it('reverts', async function () {
         await expectRevert.unspecified(
-          this.airdrop.multiSend([addresses[1]], [100], { from: airdropOwner })
+          this.airdrop.multiSend([addresses[1]], [100], { from: airdropOwner }),
         );
       });
     });
@@ -100,7 +100,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
           }
           const remainingTokens = await this.airdrop.remainingTokens();
           remainingTokens.should.be.bignumber.equal(
-            cap.sub(totalGivenTokens)
+            cap.sub(totalGivenTokens),
           );
         });
 
@@ -165,7 +165,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
           it('reverts', async function () {
             const moreThanTheCap = cap.addn(1);
             await expectRevert.unspecified(
-              this.airdrop.multiSend([addresses[1]], [moreThanTheCap], { from: airdropOwner })
+              this.airdrop.multiSend([addresses[1]], [moreThanTheCap], { from: airdropOwner }),
             );
           });
         });
@@ -173,7 +173,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
         describe('if addresses are empty', function () {
           it('reverts', async function () {
             await expectRevert.unspecified(
-              this.airdrop.multiSend([], amounts, { from: airdropOwner })
+              this.airdrop.multiSend([], amounts, { from: airdropOwner }),
             );
           });
         });
@@ -181,7 +181,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
         describe('if amounts are empty', function () {
           it('reverts', async function () {
             await expectRevert.unspecified(
-              this.airdrop.multiSend(addresses, [], { from: airdropOwner })
+              this.airdrop.multiSend(addresses, [], { from: airdropOwner }),
             );
           });
         });
@@ -189,7 +189,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
         describe('if amounts length is not equal to addresses length', function () {
           it('reverts', async function () {
             await expectRevert.unspecified(
-              this.airdrop.multiSend([addresses[0]], [amounts[0], amounts[1]], { from: airdropOwner })
+              this.airdrop.multiSend([addresses[0]], [amounts[0], amounts[1]], { from: airdropOwner }),
             );
           });
         });
@@ -198,7 +198,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
       describe('if token owner is calling', function () {
         it('reverts', async function () {
           await expectRevert.unspecified(
-            this.airdrop.multiSend(addresses, amounts, { from: tokenOwner })
+            this.airdrop.multiSend(addresses, amounts, { from: tokenOwner }),
           );
         });
       });
@@ -206,7 +206,7 @@ function shouldBehaveLikeAirDrop (accounts, cap) {
       describe('if another account is calling', function () {
         it('reverts', async function () {
           await expectRevert.unspecified(
-            this.airdrop.multiSend(addresses, amounts, { from: anotherAccount })
+            this.airdrop.multiSend(addresses, amounts, { from: anotherAccount }),
           );
         });
       });
